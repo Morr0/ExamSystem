@@ -7,7 +7,7 @@ namespace ExamSystemBackend.Models
     {
         public Exam Exam { get; set; }
 
-        public List<QuestionResponse> Responses { get; set; }
+        public List<QuestionResponse> Responses { get; set; } = new List<QuestionResponse>();
 
         public ExamReportStatus Status { get; set; }
     }

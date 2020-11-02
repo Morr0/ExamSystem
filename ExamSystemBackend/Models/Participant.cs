@@ -10,6 +10,6 @@ namespace ExamSystemBackend.Models
         
         public string Name { get; set; }
         
-        public List<Class> Classes { get; set; }
+        public List<Class> Classes { get; set; } = new List<Class>();
     }
 }

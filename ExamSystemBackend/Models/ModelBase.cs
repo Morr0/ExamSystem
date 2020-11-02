@@ -5,7 +5,6 @@ namespace ExamSystemBackend.Models
 {
     public abstract class ModelBase
     {
-        [Key]
-        public Guid Id { get; set; }
+        [Key] public string Id { get; set; } = Guid.NewGuid().ToString();
     }
 }
