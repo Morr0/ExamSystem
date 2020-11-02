@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using ExamSystemBackend.Models;
+using ExamSystemBackend.Services.ExamHandlingService.DTOs;
 
 namespace ExamSystemBackend.Services.ClassHandlingService
 {
@@ -13,8 +14,9 @@ namespace ExamSystemBackend.Services.ClassHandlingService
         Task<Participant> AddParticipant(Participant participant, string classId);
         Task<List<Participant>> GetParticipants(string classId);
         
-        Task AddExamReport(ExamReport examReport);
-        Task<ExamReport> GetExamReport(string participantId, string examReportId);
-        Task<List<ExamReport>> GetExamReports();
+        Task<ExamReport> PutExam(string examId);
+
+        Task<QuestionResponse> RespondToQuestion(StudentQuestionResponseDTO dto);
+        Task<int> GetExamScore(string studentId, string examReportId);
     }
 }

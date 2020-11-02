@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using ExamSystemBackend.Exceptions;
 using ExamSystemBackend.Models;
+using ExamSystemBackend.Services.ExamHandlingService.DTOs;
 
 namespace ExamSystemBackend.Services.ClassHandlingService
 {
@@ -87,12 +88,18 @@ namespace ExamSystemBackend.Services.ClassHandlingService
 
         public async Task<List<Participant>> GetParticipants(string classId)
         {
-            throw new System.NotImplementedException();
+            if (!_classes.ContainsKey(classId)) throw new ClassNotFoundException();
+
+            Class @class = _classes[classId];
+            List<Participant> participants = new List<Participant>(@class.Students.Count + @class.Teachers.Count);
+            participants.AddRange(@class.Teachers);
+            participants.AddRange(@class.Students);
+            return participants;
         }
 
-        public async Task AddExamReport(ExamReport examReport)
+        public async Task<ExamReport> PutExam(string examId)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public async Task<ExamReport> GetExamReport(string participantId, string examReportId)
@@ -100,9 +107,19 @@ namespace ExamSystemBackend.Services.ClassHandlingService
             throw new System.NotImplementedException();
         }
 
-        public async Task<List<ExamReport>> GetExamReports()
+        public async Task<List<ExamReport>> GetExamReports(string teacherId, string classId)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
+        }
+
+        public async Task<QuestionResponse> RespondToQuestion(StudentQuestionResponseDTO dto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<int> GetExamScore(string studentId, string examReportId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

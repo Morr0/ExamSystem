@@ -7,10 +7,9 @@ namespace ExamSystemBackend.Models
     {
         public string Title { get; set; }
 
-        public List<string> PossibleAnswers { get; set; } = new List<string>();
-        
-        public Participant Author { get; set; }
-        
+        public List<string> Choices { get; set; } = new List<string>();
+        public string CorrectAnswer { get; set; }
+
         public int TotalMark { get; set; }
     }
 }
